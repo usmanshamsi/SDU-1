@@ -26,7 +26,7 @@
         rtf.AppendText("-----------" & vbCrLf)
         _blue() : Output("Width of beam, b", b, "inch")
         _blue() : Output("Depth of beam, h", h, "inch")
-        _blue() : Output("Cover to rebar center", cc, "inch")
+        _blue() : Output("Cover to rebar centre", cc, "inch")
         _blue() : Output("Specified Strength of Concrete, f'c", fc, "psi")
         _blue() : Output("Yield Strength of reinforcement, fy", fy, "psi")
         _blue() : Output("Area of reinforcement, As", _as, "sq.inch")
@@ -98,7 +98,7 @@
         Output("Net Tensile Strain, epsilon_t", epsilon_t, "")
 
         Dim phi As Double = Phi_flexure(epsilon_t)
-        Output("Strengh reduction factor, phi_flexure", phi, "")
+        Output("Strength reduction factor, phi_flexure", phi, "")
         br()
 
         Dim moment_capacity As Double = _as * fy * (d - a / 2)
@@ -124,10 +124,12 @@
         rtf.SelectionColor = Color.Blue
     End Sub
     Private Sub _red()
-        rtf.SelectionColor = Color.Red
+        rtf.SelectionBackColor = Color.Red
+        'rtf.SelectionColor = Color.DarkRed
     End Sub
     Private Sub _green()
-        rtf.SelectionColor = Color.SeaGreen
+        rtf.SelectionBackColor = Color.Yellow
+        'rtf.SelectionColor = Color.DarkGreen
 
     End Sub
     Private Sub _black()
@@ -170,4 +172,12 @@
 
 
 
+   
+    Private Sub beam_width_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles beam_width.Enter, beam_width.Click, _
+        beam_depth.Enter, beam_depth.Click, cover.Enter, cover.Click, conc_fc.Enter, conc_fc.Click, steel_fy.Enter, steel_fy.Click, _
+        area_steel.Enter, area_steel.Click
+
+        sender.SelectAll()
+
+    End Sub
 End Class

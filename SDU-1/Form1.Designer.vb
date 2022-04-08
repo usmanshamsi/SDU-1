@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.beam_width = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -58,7 +59,7 @@ Partial Class Form1
         Me.beam_width.Location = New System.Drawing.Point(273, 10)
         Me.beam_width.Name = "beam_width"
         Me.beam_width.Size = New System.Drawing.Size(85, 22)
-        Me.beam_width.TabIndex = 1
+        Me.beam_width.TabIndex = 0
         Me.beam_width.Text = "12"
         Me.beam_width.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -94,7 +95,7 @@ Partial Class Form1
         Me.area_steel.Location = New System.Drawing.Point(273, 150)
         Me.area_steel.Name = "area_steel"
         Me.area_steel.Size = New System.Drawing.Size(85, 22)
-        Me.area_steel.TabIndex = 16
+        Me.area_steel.TabIndex = 5
         Me.area_steel.Text = "1.2"
         Me.area_steel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -121,7 +122,7 @@ Partial Class Form1
         Me.steel_fy.Location = New System.Drawing.Point(273, 122)
         Me.steel_fy.Name = "steel_fy"
         Me.steel_fy.Size = New System.Drawing.Size(85, 22)
-        Me.steel_fy.TabIndex = 13
+        Me.steel_fy.TabIndex = 4
         Me.steel_fy.Text = "60000"
         Me.steel_fy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -148,7 +149,7 @@ Partial Class Form1
         Me.conc_fc.Location = New System.Drawing.Point(273, 94)
         Me.conc_fc.Name = "conc_fc"
         Me.conc_fc.Size = New System.Drawing.Size(85, 22)
-        Me.conc_fc.TabIndex = 10
+        Me.conc_fc.TabIndex = 3
         Me.conc_fc.Text = "3000"
         Me.conc_fc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -175,7 +176,7 @@ Partial Class Form1
         Me.cover.Location = New System.Drawing.Point(273, 66)
         Me.cover.Name = "cover"
         Me.cover.Size = New System.Drawing.Size(85, 22)
-        Me.cover.TabIndex = 7
+        Me.cover.TabIndex = 2
         Me.cover.Text = "2.5"
         Me.cover.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -202,7 +203,7 @@ Partial Class Form1
         Me.beam_depth.Location = New System.Drawing.Point(273, 38)
         Me.beam_depth.Name = "beam_depth"
         Me.beam_depth.Size = New System.Drawing.Size(85, 22)
-        Me.beam_depth.TabIndex = 4
+        Me.beam_depth.TabIndex = 1
         Me.beam_depth.Text = "24"
         Me.beam_depth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -211,12 +212,13 @@ Partial Class Form1
         Me.rtf.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rtf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.rtf.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtf.Font = New System.Drawing.Font("Consolas", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtf.Location = New System.Drawing.Point(427, 10)
         Me.rtf.Name = "rtf"
-        Me.rtf.Size = New System.Drawing.Size(869, 561)
+        Me.rtf.Size = New System.Drawing.Size(869, 709)
         Me.rtf.TabIndex = 0
+        Me.rtf.TabStop = False
         Me.rtf.Text = ""
         '
         'calculate_button
@@ -224,15 +226,16 @@ Partial Class Form1
         Me.calculate_button.Location = New System.Drawing.Point(273, 187)
         Me.calculate_button.Name = "calculate_button"
         Me.calculate_button.Size = New System.Drawing.Size(125, 34)
-        Me.calculate_button.TabIndex = 5
+        Me.calculate_button.TabIndex = 6
         Me.calculate_button.Text = "Calculate"
         Me.calculate_button.UseVisualStyleBackColor = True
         '
         'Form1
         '
+        Me.AcceptButton = Me.calculate_button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1308, 583)
+        Me.ClientSize = New System.Drawing.Size(1308, 731)
         Me.Controls.Add(Me.rtf)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.calculate_button)
@@ -253,6 +256,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.cover)
         Me.Controls.Add(Me.Label6)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "SDU-1 (Rectangular Beam Analysis)"
         Me.ResumeLayout(False)
