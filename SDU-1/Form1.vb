@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports SDU_1.FormSerialisation
+
+Public Class Form1
 
     Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
 
@@ -78,7 +80,7 @@
             End If
         End If
 
-        
+
         If (rho < rho_min) Then
             _red() : Info("rho is less than rho_min, consider increasing.")
             br()
@@ -172,12 +174,21 @@
 
 
 
-   
+
     Private Sub beam_width_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles beam_width.Enter, beam_width.Click, _
         beam_depth.Enter, beam_depth.Click, cover.Enter, cover.Click, conc_fc.Enter, conc_fc.Click, steel_fy.Enter, steel_fy.Click, _
         area_steel.Enter, area_steel.Click
 
         sender.SelectAll()
 
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        FormSerialisor.Deserialise(Me, Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\sdu1-data.xml")
+    End Sub
+
+
+    Private Sub Form1_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
+        FormSerialisor.Serialise(Me, Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\sdu1-data.xml")
     End Sub
 End Class
