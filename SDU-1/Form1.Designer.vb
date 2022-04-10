@@ -43,6 +43,9 @@ Partial Class Form1
         Me.beam_depth = New System.Windows.Forms.TextBox()
         Me.rtf = New System.Windows.Forms.RichTextBox()
         Me.calculate_button = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -209,14 +212,12 @@ Partial Class Form1
         '
         'rtf
         '
-        Me.rtf.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtf.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.rtf.Dock = System.Windows.Forms.DockStyle.Fill
         Me.rtf.Font = New System.Drawing.Font("Consolas", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtf.Location = New System.Drawing.Point(427, 10)
+        Me.rtf.Location = New System.Drawing.Point(10, 10)
         Me.rtf.Name = "rtf"
-        Me.rtf.Size = New System.Drawing.Size(869, 709)
+        Me.rtf.Size = New System.Drawing.Size(834, 690)
         Me.rtf.TabIndex = 0
         Me.rtf.TabStop = False
         Me.rtf.Text = ""
@@ -230,13 +231,41 @@ Partial Class Form1
         Me.calculate_button.Text = "Calculate"
         Me.calculate_button.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.rtf)
+        Me.Panel1.Location = New System.Drawing.Point(440, 10)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Padding = New System.Windows.Forms.Padding(10)
+        Me.Panel1.Size = New System.Drawing.Size(856, 712)
+        Me.Panel1.TabIndex = 18
+        '
+        'Label13
+        '
+        Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label13.BackColor = System.Drawing.SystemColors.Control
+        Me.Label13.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.Blue
+        Me.Label13.Location = New System.Drawing.Point(12, 675)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Padding = New System.Windows.Forms.Padding(5)
+        Me.Label13.Size = New System.Drawing.Size(408, 47)
+        Me.Label13.TabIndex = 39
+        Me.Label13.Text = "Source Code is available at" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "https://github.com/usmanshamsi/SDU-1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Form1
         '
         Me.AcceptButton = Me.calculate_button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1308, 731)
-        Me.Controls.Add(Me.rtf)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.calculate_button)
         Me.Controls.Add(Me.Label12)
@@ -259,6 +288,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "SDU-1 (Rectangular Beam Analysis)"
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -283,5 +313,7 @@ Partial Class Form1
     Friend WithEvents beam_depth As System.Windows.Forms.TextBox
     Friend WithEvents rtf As System.Windows.Forms.RichTextBox
     Friend WithEvents calculate_button As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 
 End Class

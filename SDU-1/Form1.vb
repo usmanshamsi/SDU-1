@@ -43,27 +43,23 @@ Public Class Form1
         br()
 
         Dim beta1 As Double = CalculateBeta1(fc)
-        Output("Beta-1", beta1, "")
+        Output("Beta-1", beta1, "0.0###", "")
         br()
 
         Dim rho As Double = _as / (b * d)
 
         Output("Provided reinforcement percentage, rho", rho * 100.0, "%", _as, "sq. inch")
-        br()
 
 
 
         Dim rho_min As Double = Math.Max(3 * Math.Sqrt(fc) / fy, 200.0 / fy)
 
         Output("Minimum reinforcement, rho-minimum", rho_min * 100.0, "%", rho_min * b * d, "sq.inch")
-        br()
-
 
         Dim rho_bal As Double = 0.85 * beta1 * (fc / fy) * (87000 / (87000 + fy))
         Output("Balanced reinforcement, rho-balance", rho_bal * 100.0, "%", rho_bal * b * d, "sq.inch")
-        br()
-        Const modulus_of_Steel As Double = 29000000.0
 
+        Const modulus_of_Steel As Double = 29000000.0
 
         Dim rho_max As Double = ((0.003 + fy / modulus_of_Steel) / 0.008) * rho_bal
         Output("Maximum reinforcement, rho-max", rho_max * 100.0, "%", rho_max * b * d, "sq.inch")
@@ -97,10 +93,10 @@ Public Class Form1
 
         '    calculate strain, phi and moment capacity
         Dim epsilon_t As Double = ((d - c) / c) * 0.003
-        Output("Net Tensile Strain, epsilon_t", epsilon_t, "")
+        Output("Net Tensile Strain, epsilon_t", epsilon_t, "0.0#####", "")
 
         Dim phi As Double = Phi_flexure(epsilon_t)
-        Output("Strength reduction factor, phi_flexure", phi, "")
+        Output("Strength reduction factor, phi_flexure", phi, "0.0###", "")
         br()
 
         Dim moment_capacity As Double = _as * fy * (d - a / 2)
@@ -111,10 +107,16 @@ Public Class Form1
     End Sub
 
     Private Sub Output(ByVal parameter As String, ByVal value As Double, ByVal unit As String)
-        rtf.AppendText(parameter & " = " & value.ToString("0.0#####") & " " & unit & vbCrLf)
+        rtf.AppendText(parameter & " = " & value.ToString("0.0#") & " " & unit & vbCrLf)
+    End Sub
+    Private Sub Output(ByVal parameter As String, ByVal value As Double, ByVal format As String, ByVal unit As String)
+        rtf.AppendText(parameter & " = " & value.ToString(format) & " " & unit & vbCrLf)
     End Sub
     Private Sub Output(ByVal parameter As String, ByVal value1 As Double, ByVal unit1 As String, ByVal value2 As Double, ByVal unit2 As String)
-        rtf.AppendText(parameter & " = " & value1.ToString("0.0#####") & " " & unit1 & " = " & value2.ToString("0.0#####") & " " & unit2 & vbCrLf)
+        rtf.AppendText(parameter & " = " & value1.ToString("0.0#") & " " & unit1 & " = " & value2.ToString("0.0#") & " " & unit2 & vbCrLf)
+    End Sub
+    Private Sub Output(ByVal parameter As String, ByVal value1 As Double, ByVal format1 As String, ByVal unit1 As String, ByVal value2 As Double, ByVal format2 As String, ByVal unit2 As String)
+        rtf.AppendText(parameter & " = " & value1.ToString(format1) & " " & unit1 & " = " & value2.ToString(format2) & " " & unit2 & vbCrLf)
     End Sub
     Private Sub Info(ByVal text As String)
         rtf.AppendText(text & vbCrLf)
